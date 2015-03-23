@@ -1,7 +1,7 @@
 {
-  "name": "planningpoker",
+  "name": "planningpoker_development",
   "version": "1.0.0",
-  "description": "planningpoker: An Ionic project",
+  "description": "planningpoker_development: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^0.7.1",
