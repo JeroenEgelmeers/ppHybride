@@ -33,6 +33,23 @@ angular.module('starter.controllers', [])
   };
 })
 
+.controller('HomeCtrl', function($scope, $state) {
+$scope.enterRoom = function ()
+{
+  // Save to current Session.
+  $state.go('app.username');
+};
+
+$scope.pickCard = function ()
+{
+  $state.go('app.yourcard');
+}
+
+})
+
+// .controller('PlaylistCtrl', function($scope, $stateParams) {
+// });
+
 // .controller('PlaylistsCtrl', function($scope) {
 //   $scope.playlists = [
 //     { title: 'Reggae', id: 1 },
@@ -43,15 +60,3 @@ angular.module('starter.controllers', [])
 //     { title: 'Cowbell', id: 6 }
 //   ];
 // })
-
-
-.controller('HomeCtrl', function($scope, $state) {
- $scope.enterRoom = function ()
-  {
-    // Save to current Session.
-    $state.go('app.username');
-  };
-})
-
-// .controller('PlaylistCtrl', function($scope, $stateParams) {
-// });
