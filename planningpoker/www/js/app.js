@@ -30,43 +30,56 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: "/search",
+  .state('app.room', {
+    url: "/room",
     views: {
       'menuContent': {
-        templateUrl: "templates/search.html"
-      }
-    }
-  })
-
-  .state('app.home', {
-    url: "/home",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/home.html",
+        templateUrl: "templates/room.html",
           controller: 'HomeCtrl'
       }
     }
   })
-    .state('app.playlists', {
-      url: "/playlists",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
 
-  .state('app.single', {
-    url: "/playlists/:playlistId",
+  .state('app.username', {
+    url: "/username",
     views: {
       'menuContent': {
-        templateUrl: "templates/playlist.html",
-        controller: 'PlaylistCtrl'
+        templateUrl: "templates/username.html",
+          controller: 'HomeCtrl'
+      }
+    }
+  })
+
+  .state('app.card', {
+    url: "/card",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/card.html",
+          controller: 'HomeCtrl'
+      }
+    }
+  })
+
+  .state('app.yourcard', {
+    url: "/yourcard",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/yourcard.html",
+          controller: 'HomeCtrl'
+      }
+    }
+  })
+
+  .state('app.results', {
+    url: "/results",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/results.html",
+          controller: 'HomeCtrl'
       }
     }
   });
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/home');
+  $urlRouterProvider.otherwise('/app/room');
 });
