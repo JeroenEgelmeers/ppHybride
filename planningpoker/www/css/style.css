@@ -6,9 +6,8 @@
 	position:relative;
 }
 .wrap img {
-	width:100%;
+	max-width:100%;
 	height:auto;
-	border:1px solid #000;
 }
 .caption {
 	position:absolute;
@@ -29,6 +28,6 @@
 }
 .caption-content p {
 	margin:0 50px;
-	background:rgba(255,255,255,0.4);
+	text-align:center;
 	padding:10px;
 }
