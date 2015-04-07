@@ -1,1 +1,34 @@
 /* Empty. Add your own CSS if you like */
+.wrap {
+	max-width:960px;
+	min-width:280px;
+	margin:auto;
+	position:relative;
+}
+.wrap img {
+	width:100%;
+	height:auto;
+	border:1px solid #000;
+}
+.caption {
+	position:absolute;
+	top:5px;
+	left:0;
+	right:0;
+	bottom:10px;
+	overflow:auto;
+}
+.caption-inner {
+	display:table;
+	width:100%;
+	height:100%;
+}
+.caption-content {
+	display:table-cell;
+	vertical-align:middle;
+}
+.caption-content p {
+	margin:0 50px;
+	background:rgba(255,255,255,0.4);
+	padding:10px;
+}
