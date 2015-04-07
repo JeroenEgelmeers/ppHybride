@@ -48,7 +48,8 @@ angular.module('starter.controllers', [])
 .controller('HomeCtrl', function($scope, $state) {
  $scope.enterRoom = function ()
   {
-    $state.go('app.search');
+    // Save to current Session.
+    $state.go('app.username');
   };
 })
 
