@@ -51,6 +51,11 @@ angular.module('starter.controllers', [])
     // Save to current Session.
     $state.go('app.username');
   };
+
+  $scope.pickCard = function () 
+  {
+    $state.go('app.yourcard');
+  };
 })
 
 // .controller('PlaylistCtrl', function($scope, $stateParams) {
