@@ -44,17 +44,18 @@ angular.module('starter.controllers', [])
 //   ];
 // })
 
-
 .controller('HomeCtrl', function($scope, $state) {
- $scope.enterRoom = function ()
+
+  $scope.enterRoom = function ()
   {
     // Save to current Session.
     $state.go('app.username');
   };
 
   $scope.pickCard = function () 
-  {
+  {    
     $state.go('app.yourcard');
+
   };
 })
 
