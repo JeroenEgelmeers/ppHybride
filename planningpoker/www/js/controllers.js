@@ -38,22 +38,31 @@ $scope.enterRoom = function ()
 {
   // Save to current Session.
   $state.go('app.username');
-};
+  };
 
-$scope.pickCard = function ()
-{
-  $state.go('app.yourcard');
-}
+  $scope.pickCard = function ()
+  {
+    $state.go('app.yourcard');
+  }
 
 })
 
+
 .controller('HomeCtrl', function($scope, $state) {
- $scope.enterRoom = function ()
+
+  $scope.enterRoom = function ()
   {
     // Save to current Session.
     $state.go('app.username');
   };
+
+  $scope.pickCard = function () 
+  {    
+    $state.go('app.yourcard');
+
+  };
 })
+
 
 .controller('SelectedCardCntrl', function($scope, $ionicScrollDelegate)
 {

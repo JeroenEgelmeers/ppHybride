@@ -4,22 +4,26 @@
 	    <h4>Kaart kiezen</h4>
 
 	    <p>Kies een kaart uit onderstaande lijst.</p>
-	    <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-			<button type="button" name="cardValue" class="btn btn-default">1</button>
-			<button type="button" name="cardValue" class="btn btn-default">2</button>
-			<button type="button" name="cardValue" class="btn btn-default">3</button>
-			<button type="button" name="cardValue" class="btn btn-default">5</button>
-			<button type="button" name="cardValue" class="btn btn-default">8</button>
-			<button type="button" name="cardValue" class="btn btn-default">13</button>
-			<button type="button" name="cardValue" class="btn btn-default">21</button>
-			<button type="button" name="cardValue" class="btn btn-default">34</button>
-			<button type="button" name="cardValue" class="btn btn-default">55</button>
-			<button type="button" name="cardValue" class="btn btn-default">89</button>
-			<button type="button" name="cardValue" class="btn btn-default">144</button>
-			<button type="button" name="cardValue" class="btn btn-default">233</button>
-		</div>
-
-		<button name="selectCard">Selecteer kaart</button>
+	    <form ng-submit="pickCard()">
+	    <select class="selectpicker">
+		    <option ng-model="cardData.card" value="1">1</option>
+		    <option ng-model="cardData.card" value="2">2</option>
+		    <option ng-model="cardData.card" value="3">3</option>
+		    <option ng-model="cardData.card" value="5">5</option>
+		    <option ng-model="cardData.card" value="8">8</option>
+		    <option ng-model="cardData.card" value="13">13</option>
+		    <option ng-model="cardData.card" value="21">21</option>
+		    <option ng-model="cardData.card" value="34">34</option>
+		    <option ng-model="cardData.card" value="55">55</option>
+		    <option ng-model="cardData.card" value="89">89</option>
+		    <option ng-model="cardData.card" value="144">144</option>
+		    <option ng-model="cardData.card" value="233">233</option>
+		    <option ng-model="cardData.card" value="377">377</option>
+		    <option ng-model="cardData.card" value="610">610</option>
+		</select>
+		<div clas="clear"></div>
+		<button class="button button-block button-positive" type="submit" name="pickCardSubmit">Selecteer kaart</button>
+		</form>
 	</div>
   </ion-content>
 </ion-view>
