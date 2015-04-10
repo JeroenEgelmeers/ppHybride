@@ -48,22 +48,6 @@ $scope.enterRoom = function ()
 })
 
 
-.controller('HomeCtrl', function($scope, $state) {
-
-  $scope.enterRoom = function ()
-  {
-    // Save to current Session.
-    $state.go('app.username');
-  };
-
-  $scope.pickCard = function () 
-  {    
-    $state.go('app.yourcard');
-
-  };
-})
-
-
 .controller('SelectedCardCntrl', function($scope, $ionicScrollDelegate)
 {
   var imageIsFullscreen = false;
