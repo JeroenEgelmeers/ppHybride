@@ -44,29 +44,30 @@ $scope.enterRoom = function ()
   {
     $state.go('app.yourcard');
   }
+  
+  var imageIsFullscreen = false;
 
+  $scope.onImageTap = function ()
+  {
+    if (imageIsFullscreen)
+    {
+      $("#imageWrapper").removeAttr("style");
+      $("#your-card-image").removeAttr("style")
+    }
+    else
+    {
+      $ionicScrollDelegate.scrollTop()
+      $("#imageWrapper").parent().css({ "height":"calc(100% - 1px)" });
+      $("#imageWrapper").css({ "position":"absolute","left":"0","top":"0","max-width":"100%", "width":"100%", "height":"100%" });
+      $("#your-card-image").css({ "width": "100%", "height" : "100%" });
+    }
+
+    imageIsFullscreen = !imageIsFullscreen;
+  };
 })
 
 
 .controller('SelectedCardCntrl', function($scope, $ionicScrollDelegate)
 {
-  var imageIsFullscreen = false;
-
-  $scope.onImageTap = function ()
-  {
-  if (imageIsFullscreen)
-  {
-    $("#imageWrapper").removeAttr("style");
-    $("#your-card-image").removeAttr("style")
-  }
-  else
-  {
-    $ionicScrollDelegate.scrollTop()
-    $("#imageWrapper").parent().css({ "height":"calc(100% - 1px)" });
-    $("#imageWrapper").css({ "position":"absolute","left":"0","top":"0","max-width":"100%", "width":"100%", "height":"100%" });
-    $("#your-card-image").css({ "width": "100%", "height" : "100%" });
-  }
-
-  imageIsFullscreen = !imageIsFullscreen;
-  };
+  
 })
