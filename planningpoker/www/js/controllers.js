@@ -6,58 +6,66 @@ angular.module('starter.controllers', [])
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
+	scope: $scope
   }).then(function(modal) {
-    $scope.modal = modal;
+	$scope.modal = modal;
   });
 
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
-    $scope.modal.hide();
+	$scope.modal.hide();
   };
 
   // Open the login modal
   $scope.login = function() {
-    $scope.modal.show();
+	$scope.modal.show();
   };
 
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
+	console.log('Doing login', $scope.loginData);
 
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
+	// Simulate a login delay. Remove this and replace with your login
+	// code if using a login system
+	$timeout(function() {
+	  $scope.closeLogin();
+	}, 1000);
   };
 })
 
-.controller('HomeCtrl', function($scope, $state) {
+.controller('HomeCtrl', ['$scope', '$state', '$ionicScrollDelegate', 'Card', function($scope, $state, $ionicScrollDelegate, Card) {
+	$scope.card 			= Card;
+	$scope.cardOptions  	= Card.getOptions();
+	$scope.cardValue 		= Card.getValue();
 
-  $scope.pickCard = function ()
-  {
-    $state.go('app.yourcard');
-  }
+	$scope.saveCard = function (newValue)
+	{
+		$scope.card.setValue(newValue);
+	}
+
+	$scope.pickCard = function ()
+	{
+		$state.go('app.yourcard');
+	}
   
   var imageIsFullscreen = false;
 
   $scope.onImageTap = function ()
   {
-    if (imageIsFullscreen)
-    {
-      $("#imageWrapper").removeAttr("style");
-      $("#your-card-image").removeAttr("style")
-    }
-    else
-    {
-      $ionicScrollDelegate.scrollTop()
-      $("#imageWrapper").parent().css({ "height":"calc(100% - 1px)" });
-      $("#imageWrapper").css({ "position":"absolute","left":"0","top":"0","max-width":"100%", "width":"100%", "height":"100%" });
-      $("#your-card-image").css({ "width": "100%", "height" : "100%" });
-    }
+	if (imageIsFullscreen)
+	{
+	  $("#imageWrapper").removeAttr("style");
+	  $("#your-card-image").removeAttr("style")
+	}
+	else
+	{
+	  $ionicScrollDelegate.scrollTop()
+	  $("#imageWrapper").parent().css({ "height":"calc(100% - 1px)" });
+	  $("#imageWrapper").css({ "position":"absolute","left":"0","top":"0","max-width":"100%", "width":"100%", "height":"100%" });
+	  $("#your-card-image").css({ "width": "100%", "height" : "100%" });
+	}
 
-    imageIsFullscreen = !imageIsFullscreen;
+	imageIsFullscreen = !imageIsFullscreen;
 
   }
   
@@ -74,40 +82,40 @@ $scope.chosenColor;
 
  $scope.enterRoom = function ()
   {
-    // Save to current Session.
-    $state.go('app.color');
+	// Save to current Session.
+	$state.go('app.color');
   };
  
  $scope.submitUsername = function ()
   {
-    // Save to current Session.
-    $state.go('app.card');
+	// Save to current Session.
+	$state.go('app.card');
   };
  
  $scope.submitColor = function ()
   {
-    $scope.chosenColor =
-    // Save to current Session.
-    $state.go('app.username');
+	$scope.chosenColor =
+	// Save to current Session.
+	$state.go('app.username');
   };
 
-})
+}])
 
 .controller('CollorArray', function ($scope) {
 $scope.ocw = {
-    "modules":
-        [
-                {
-                   "title":"name of module1",
-                   "description":"description of module1",
-                   "weeks":[{"id":1, "title":"Week 01"}]
-                },
+	"modules":
+		[
+				{
+				   "title":"name of module1",
+				   "description":"description of module1",
+				   "weeks":[{"id":1, "title":"Week 01"}]
+				},
 
-                {
-                   "title":"name of module2",
-                   "description":"description of module2",
-                   "weeks":[{"id":2, "title":"Week 02"},{"id":3,"title":"Week 03"}]
-                }
-        ]
+				{
+				   "title":"name of module2",
+				   "description":"description of module2",
+				   "weeks":[{"id":2, "title":"Week 02"},{"id":3,"title":"Week 03"}]
+				}
+		]
   };  
 });

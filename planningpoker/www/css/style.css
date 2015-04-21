@@ -1,3 +1,9 @@
+#your-card-image {
+	height: 748px;
+	width:561px;
+	margin:auto;
+	display:block;
+}
 .wrap {
 	max-width:960px;
 	min-width:280px;
