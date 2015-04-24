@@ -1,14 +1,15 @@
 <ion-view view-title="Planning Poker">
-  <ion-content>
-  	<div class="container">
-	    <h4>Kaart kiezen</h4>
+	<ion-content>
+		<div class="container">
+			<h4>Kaart kiezen</h4>
 
-	    <p>Kies een kaart uit onderstaande lijst.</p>
-	    <form ng-submit="pickCard()">
-	    <select ng-model="cardValue" ng-options="value for value in cardOptions" ng-change="saveCard(cardValue)" class="selectpicker"></select>
-		<div clas="clear"></div>
-		<button class="button button-block button-positive" type="submit" name="pickCardSubmit">Selecteer kaart</button>
-		</form>
-	</div>
-  </ion-content>
+			<p>Kies een kaart uit onderstaande lijst.</p>
+
+			<form ng-submit="pickCard()">
+				<select ng-model="cardValue" ng-options="value for value in cardOptions" ng-change="saveCard(cardValue)" class="selectpicker"></select>
+				<div clas="clear"></div>
+				<button class="button button-block button-positive" type="submit" name="pickCardSubmit">Selecteer kaart</button>
+			</form>
+		</div>
+	</ion-content>
 </ion-view>

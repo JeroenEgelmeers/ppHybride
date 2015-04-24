@@ -1,6 +1,6 @@
 <ion-view view-title="Planning Poker">
-  	<ion-content ng-controller="HomeCtrl">
-  		<form ng-submit="submitColor()">
+	<ion-content ng-controller="HomeCtrl">
+		<form ng-submit="submitColor()">
 			<div class="row" ng-repeat="dat in colors.data">
 				<div class="col col-25" ng-repeat="colors in dat.row">
 					<button 
@@ -13,6 +13,6 @@
 					</button>
 				</div>
 			</div>
-  		</form>
+		</form>
 	</ion-content>
 </ion-view>

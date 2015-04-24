@@ -1,15 +1,15 @@
 <ion-view view-title="Planning Poker">
-  <ion-content>
-    <form ng-submit="enterRoom()">
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Room ID</span>
-          <input type="text" ng-model="roomData.id">
-        </label>
-        <label class="item">
-          <button class="button button-block button-positive" name="loginToRoom" type="submit">Toetreden</button>
-        </label>
-      </div>
-    </form>
-  </ion-content>
+	<ion-content>
+		<form ng-submit="enterRoom(roomID)">
+			<div class="list">
+				<label class="item item-input">
+					<span class="input-label">Room ID</span>
+					<input type="text" ng-model="roomID">
+				</label>
+				<label class="item">
+					<button class="button button-block button-positive" name="loginToRoom" type="submit">Toetreden</button>
+				</label>
+			</div>
+		</form>
+	</ion-content>
 </ion-view>

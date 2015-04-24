@@ -1,4 +1,6 @@
-angular.module('starter').factory('Card', function ()
+angular
+.module('planningpoker')
+.factory('Card', function ()
 {
 	var cardOptions 	= [1, 2, 3, 5, 8, 13, 21, 34, 55, "Koffie", "Oneindig"];
 	var cardValue 		= cardOptions[0];
