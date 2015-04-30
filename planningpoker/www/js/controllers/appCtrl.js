@@ -2,6 +2,7 @@ angular
 .module('planningpoker')
 .controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', function ($scope, $ionicModal, $timeout)
 {
+	/*
 	// Form data for the login modal
 	$scope.loginData = {};
 
@@ -35,4 +36,5 @@ angular
 			$scope.closeLogin();
 		}, 1000);
 	};
+	*/
 }]);

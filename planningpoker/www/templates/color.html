@@ -1,18 +1,14 @@
-<ion-view view-title="Planning Poker">
+<ion-view view-title="Kies een kleur">
 	<ion-content ng-controller="HomeCtrl">
-		<form ng-submit="submitColor()">
-			<div class="row" ng-repeat="dat in colors.data">
-				<div class="col col-25" ng-repeat="colors in dat.row">
-					<button 
-						class="button button-block button-positive" 
-						style="background-color:{{colors.color}}" 
-						ng-model="chosenColor"
-						name="chooseAColor" 
-						type="submit"
-						>
-					</button>
-				</div>
+		<div class="row" ng-repeat="dat in colors.data">
+			<div class="col col-25" ng-repeat="colors in dat.row">
+				<button 
+					class="button button-block button-positive" 
+					style="background-color:{{colors.color}}" 
+					ng-click="submitColor(colors.color)"
+					>
+				</button>
 			</div>
-		</form>
+		</div>
 	</ion-content>
 </ion-view>

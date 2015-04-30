@@ -1,41 +1,61 @@
 angular
 .module('planningpoker')
-.controller('EnterRoomCtrl', ['$scope', '$state', '$http', 'API', 'Session', function ($scope, $state, $http, API, Session)
+.controller('EnterRoomCtrl', ['$scope', '$state', '$ionicLoading', '$ionicModal', 'Session', function ($scope, $state, $ionicLoading, $ionicModal, Session)
 {
+	$scope.showWrongRoomIDModal = function ()
+	{
+		$scope.modal.show();
+	};
+
+	$scope.closeWrongRoomIDModal = function ()
+	{
+		$scope.modal.hide();
+	};
+
+	$scope.modalClose 	= $scope.closeWrongRoomIDModal;
+
+	$ionicModal.fromTemplateUrl('templates/modal.html', {
+		scope: $scope,
+		animation: 'slide-in-up'
+	}).then(function (modal)
+	{
+		$scope.modal = modal;
+	});
+
 	$scope.enterRoom = function (roomID)
 	{
+		$ionicLoading.show({template:'Loading...'});
 
-		var currentRooms;
-		console.log(roomID);
-		var sessions = Session.find({filter:{where: { key : parseInt(roomID) } } },
-			function (list)
+		if (!roomID)
 		{
-			console.log('got list');
-			console.log(list);
-		},
-		function (errorResponse)
+			$scope.modalTitle 	= 'Onbrekend kamernummer';
+			$scope.modalContent = 'Er is geen kamernummer ingevuld.';
+			$ionicLoading.hide();
+			$scope.showWrongRoomIDModal();
+		}
+		else
 		{
-			console.log('got error');
-			console.log(errorResponse);;
-		});
+			var sessionData = Session.find();
 
-		console.log(sessions);
-		/*Session.find({where: {key:roomID}, limit: 3}, function(err, data)
-		{
-			console.log(err);
-			console.log(data);
-		});
-		*///console.log(Session.find());
-		//console.log(API);
-		//console.log('getting data from:' + API.sessionsURL);
+			sessionData.$promise.then(function (sessions)
+			{
+				var sessionLength = sessions.length;
 
-		/*$http.get(API.sessionsURL).then(function (response)
-		{
-			//console.log('got data');
-			//console.log(response.data);
-		});
-*/
-		//console.log(roomID);
-		//$state.go('app.color');
+				for (var index = 0; index < sessionLength; index++)
+				{
+					if (sessions[index].key && roomID == sessions[index].key)
+					{
+						$ionicLoading.hide();
+						$state.go('app.color');
+						return;
+					}
+				}
+
+				$scope.modalTitle 	= 'Ongeldig kamernummer';
+				$scope.modalContent = 'Het ingevulde kamernummer, bestaad niet.';
+				$ionicLoading.hide();
+				$scope.showWrongRoomIDModal();
+			});
+		}
 	};
 }]);

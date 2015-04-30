@@ -40,26 +40,25 @@ angular.module('planningpoker', ['ionic', 'planningpoker.controllers', 'lbServic
     }
   })
 
-  .state('app.username', {
-    url: "/username",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/username.html",
-          controller: 'HomeCtrl'
-      }
-    }
-  })
-
   .state('app.color', {
     url: "/color",
     views: {
       'menuContent': {
         templateUrl: "templates/color.html",
-          controller: 'HomeCtrl'
+          controller: 'UserCtrl'
       }
     }
   })
 
+  .state('app.username', {
+    url: "/username",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/username.html",
+          controller: 'UserCtrl'
+      }
+    }
+  })
 
   .state('app.card', {
     url: "/card",
