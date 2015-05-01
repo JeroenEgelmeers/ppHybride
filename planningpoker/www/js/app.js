@@ -60,6 +60,16 @@ angular.module('planningpoker', ['ionic', 'planningpoker.controllers', 'lbServic
     }
   })
 
+  .state('app.wait', {
+    url: "/wait",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/wait.html",
+          controller: 'HomeCtrl'
+      }
+    }
+  })
+
   .state('app.card', {
     url: "/card",
     views: {

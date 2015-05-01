@@ -1,6 +1,6 @@
 angular
 .module('planningpoker')
-.controller('EnterRoomCtrl', ['$scope', '$state', '$ionicLoading', '$ionicModal', 'Session', function ($scope, $state, $ionicLoading, $ionicModal, Session)
+.controller('EnterRoomCtrl', ['$scope', '$state', '$ionicLoading', '$ionicModal', 'SessionModel', 'Session', function ($scope, $state, $ionicLoading, $ionicModal, SessionModel, Session)
 {
 	$scope.showWrongRoomIDModal = function ()
 	{
@@ -45,6 +45,7 @@ angular
 				{
 					if (sessions[index].key && roomID == sessions[index].key)
 					{
+						SessionModel.setModel(sessions[index]);
 						$ionicLoading.hide();
 						$state.go('app.color');
 						return;
