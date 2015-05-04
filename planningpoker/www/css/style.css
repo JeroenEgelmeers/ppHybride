@@ -1,74 +1,17 @@
-#your-card-image {
-	height: 748px;
-	width:561px;
-	margin:auto;
-	display:block;
-}
-.wrap {
-	max-width:960px;
-	min-width:280px;
-	margin:auto;
-	position:relative;
-}
-.wrap img {
-	max-width:100%;
-	height:auto;
-}
-.caption {
-	position:absolute;
-	top:5px;
-	left:0;
-	right:0;
-	bottom:10px;
-	overflow:auto;
-}
-.caption-inner {
-	display:table;
-	width:100%;
-	height:100%;
-}
-.caption-content {
-	display:table-cell;
-	vertical-align:middle;
-}
-.caption-content p {
-	margin:0 50px;
-	text-align:center;
-	padding:10px;
-}
+#your-card-image { height: 748px; width:561px; margin:auto; display:block; }
+.wrap { max-width:960px; min-width:280px; margin:auto; position:relative; }
+	.wrap img { max-width:100%; height:auto; }
+.caption { position:absolute; top:5px; left:0; right:0; bottom:10px; overflow:auto; }
+.caption-inner { display:table; width:100%; height:100%; }
+.caption-content { display:table-cell; vertical-align:middle; }
+	.caption-content p { margin:0 50px; text-align:center; padding:10px; }
 .container { padding:20px; }
 
 /* Layout fixes */
 .clear { clear:both; }
 
-.clearFix:after {
-	content: ".";
-	display: block;
-	height: 0;
-	clear: both;
-	visibility: hidden;
-}
+.clearFix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
 
 
 .selectpicker { width:150px; height:40px; margin-bottom:20px; }
-
-.color-1 {color: #ffff00;}
-.color-2 {color: #ffffff;}
-.color-3 {color: #00ff00;}
-.color-4 {color: #00ffff;}
-.color-5 { }
-.color-6 { }
-.color-7 { }
-.color-8 { }
-.color-9 { }
-.color-10 { }
-.color-11 { }
-.color-12 { }
-.color-13 { }
-.color-14 { }
-.color-15 { }
-.color-16 { }
-.color-17 { }
-.color-18 { }
-.color-19 { }
-.color-20 { }
+.contentBlock { padding:20px; }

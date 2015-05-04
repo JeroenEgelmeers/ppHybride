@@ -53,7 +53,7 @@ angular
 				}
 
 				$scope.modalTitle 	= 'Ongeldig kamernummer';
-				$scope.modalContent = 'Het ingevulde kamernummer, bestaad niet.';
+				$scope.modalContent = 'Het ingevulde kamernummer, bestaat niet.';
 				$ionicLoading.hide();
 				$scope.showWrongRoomIDModal();
 			});
