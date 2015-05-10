@@ -75,7 +75,7 @@ angular.module('planningpoker', ['ionic', 'planningpoker.controllers', 'lbServic
 	views: {
 	  'menuContent': {
 		templateUrl: "templates/card.html",
-		  controller: 'HomeCtrl'
+		  controller: 'SocketCtrl'
 	  }
 	}
   })
@@ -85,7 +85,7 @@ angular.module('planningpoker', ['ionic', 'planningpoker.controllers', 'lbServic
 	views: {
 	  'menuContent': {
 		templateUrl: "templates/yourcard.html",
-		  controller: 'HomeCtrl'
+		  controller: 'SocketCtrl'
 	  }
 	}
   })
@@ -95,7 +95,7 @@ angular.module('planningpoker', ['ionic', 'planningpoker.controllers', 'lbServic
 	views: {
 	  'menuContent': {
 		templateUrl: "templates/results.html",
-		  controller: 'HomeCtrl'
+		  controller: 'SocketCtrl'
 	  }
 	}
   });

@@ -4,6 +4,7 @@ angular
 {
 	var cardOptions 	= [1, 2, 3, 5, 8, 13, 21, 34, 55]; // "Koffie", "Oneindig" <- staan tuidelijk uit
 	var cardValue 		= cardOptions[0];
+	var currentIssue	= null;
 
 	return {
 		getOptions: function ()
@@ -17,6 +18,14 @@ angular
 		setValue: function (newValue)
 		{
 			cardValue = newValue;
+		},
+		getCurrentIssue: function ()
+		{
+			return currentIssue;
+		},
+		setCurrentIssue: function (newCurrentIssue)
+		{
+			currentIssue = newCurrentIssue;
 		}
 	};
 });

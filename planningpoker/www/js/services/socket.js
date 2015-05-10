@@ -2,7 +2,7 @@ angular
 .module('planningpoker')
 .factory('Socket', function ($rootScope)
 {
-	var baseUrl		= "http://p-poker.herokuapp.com:3000";
+	var baseUrl		= "http://p-poker.herokuapp.com:80";
 	var socket 		= io.connect(baseUrl);
 
 	return {
@@ -10,7 +10,6 @@ angular
 		{
 			socket.on(eventName, function ()
 			{  
-				console.log('got a on message');
 				var args 	= arguments;
 
 				$rootScope.$apply(function () {
