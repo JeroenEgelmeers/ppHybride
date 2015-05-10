@@ -1,6 +1,7 @@
 angular
 .module('planningpoker')
-.controller('HomeCtrl', ['$scope', '$state', '$ionicScrollDelegate', 'Card', 'UserColors', function($scope, $state, $ionicScrollDelegate, Card, UserColors) {
+.controller('HomeCtrl', ['$scope', '$state', '$ionicScrollDelegate', 'Card', 'UserColors', function ($scope, $state, $ionicScrollDelegate, Card, UserColors)
+{
 	//TODO: Dit omzetten naar een cardCtrl
 	//TODO: De appCtrl proberen te verwijderen
 	$scope.card 			= Card;

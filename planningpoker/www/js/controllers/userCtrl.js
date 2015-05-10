@@ -73,10 +73,15 @@ angular
 					}
 				}
 
-				Participant.create({name:User.getUsername(), color: User.getHexColor(), sessionId:sessionId});
-				$ionicLoading.hide();
-				$state.go('app.wait');
-				//$state.go('app.card');
+				var participant = Participant.create({name:User.getUsername(), color: User.getHexColor(), sessionId:sessionId});
+
+				participant.$promise.then(function (participant)
+				{
+					User.setUserId(participant.id);
+					$ionicLoading.hide();
+					$state.go('app.wait');
+					//$state.go('app.card');
+				});
 			});
 		}
 	};

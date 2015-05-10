@@ -8,15 +8,15 @@ angular.module('planningpoker', ['ionic', 'planningpoker.controllers', 'lbServic
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
+	// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+	// for form inputs)
+	if (window.cordova && window.cordova.plugins.Keyboard) {
+	  cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+	}
+	if (window.StatusBar) {
+	  // org.apache.cordova.statusbar required
+	  StatusBar.styleDefault();
+	}
   });
 })
 
@@ -24,80 +24,80 @@ angular.module('planningpoker', ['ionic', 'planningpoker.controllers', 'lbServic
   $stateProvider
 
   .state('app', {
-    url: "/app",
-    abstract: true,
-    templateUrl: "templates/menu.html",
-    controller: 'AppCtrl'
+	url: "/app",
+	abstract: true,
+	templateUrl: "templates/menu.html",
+	controller: 'AppCtrl'
   })
 
   .state('app.room', {
-    url: "/room",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/room.html",
-          controller: 'EnterRoomCtrl'
-      }
-    }
+	url: "/room",
+	views: {
+	  'menuContent': {
+		templateUrl: "templates/room.html",
+		  controller: 'EnterRoomCtrl'
+	  }
+	}
   })
 
   .state('app.color', {
-    url: "/color",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/color.html",
-          controller: 'UserCtrl'
-      }
-    }
+	url: "/color",
+	views: {
+	  'menuContent': {
+		templateUrl: "templates/color.html",
+		  controller: 'UserCtrl'
+	  }
+	}
   })
 
   .state('app.username', {
-    url: "/username",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/username.html",
-          controller: 'UserCtrl'
-      }
-    }
+	url: "/username",
+	views: {
+	  'menuContent': {
+		templateUrl: "templates/username.html",
+		  controller: 'UserCtrl'
+	  }
+	}
   })
 
   .state('app.wait', {
-    url: "/wait",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/wait.html",
-          controller: 'HomeCtrl'
-      }
-    }
+	url: "/wait",
+	views: {
+	  'menuContent': {
+		templateUrl: "templates/wait.html",
+		  controller: 'SocketCtrl'
+	  }
+	}
   })
 
   .state('app.card', {
-    url: "/card",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/card.html",
-          controller: 'HomeCtrl'
-      }
-    }
+	url: "/card",
+	views: {
+	  'menuContent': {
+		templateUrl: "templates/card.html",
+		  controller: 'HomeCtrl'
+	  }
+	}
   })
 
   .state('app.yourcard', {
-    url: "/yourcard",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/yourcard.html",
-          controller: 'HomeCtrl'
-      }
-    }
+	url: "/yourcard",
+	views: {
+	  'menuContent': {
+		templateUrl: "templates/yourcard.html",
+		  controller: 'HomeCtrl'
+	  }
+	}
   })
 
   .state('app.results', {
-    url: "/results",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/results.html",
-          controller: 'HomeCtrl'
-      }
-    }
+	url: "/results",
+	views: {
+	  'menuContent': {
+		templateUrl: "templates/results.html",
+		  controller: 'HomeCtrl'
+	  }
+	}
   });
 
   // if none of the above states are matched, use this as the fallback
@@ -105,5 +105,5 @@ angular.module('planningpoker', ['ionic', 'planningpoker.controllers', 'lbServic
   
 }).config(function (LoopBackResourceProvider)
 {
-  LoopBackResourceProvider.setUrlBase("http://p-poker.herokuapp.com" + "/api");
+	LoopBackResourceProvider.setUrlBase("http://p-poker.herokuapp.com" + "/api");
 });
