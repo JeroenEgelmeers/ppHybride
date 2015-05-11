@@ -1,3 +1,5 @@
+h1 { font-size:18px; }
+
 #your-card-image { height: 748px; width:561px; margin:auto; display:block; }
 .wrap { max-width:960px; min-width:280px; margin:auto; position:relative; }
 	.wrap img { max-width:100%; height:auto; }
@@ -15,3 +17,14 @@
 
 .selectpicker { width:150px; height:40px; margin-bottom:20px; }
 .contentBlock { padding:20px; }
+
+/* modules */
+.resultsTable { }
+	.resultsTable tr { border-bottom:1px solid #000; }
+	.resultsTable tr.tr_header { background:#387ef5; color:#FFF; text-align:center; }
+		.resultsTable tr.tr_header td { padding:8px; }
+		.resultsTable tr td { padding-top:18px; padding:20px 5px; vertical-align: top; }
+		.resultsTable tr td.colorContainer { padding:10px 5px; }
+		.resultsTable .color { height:40px; width:40px; display:block; }
+			.resultsTable .modusNumber { padding-top:2px; margin-left:20px; text-align:center; color:#FFF; background:#387ef5; }
+				.resultsTable .modusNumber td { padding:5px; }
