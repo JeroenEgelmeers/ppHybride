@@ -1,13 +1,7 @@
 angular
 .module('planningpoker')
-.controller('SocketCtrl', ['$scope', '$state', '$ionicScrollDelegate', 'Card', 'UserColors', 'Socket', function ($scope, $state, ionicScrollDelegate, Card, UserColors, Socket)
+.controller('SocketCtrl', ['$scope', '$state', '$ionicScrollDelegate', 'Card', 'UserColors', 'User', 'Rating', 'Socket', function ($scope, $state, $ionicScrollDelegate, Card, UserColors, User, Rating, Socket)
 {
-	/*
-	Socket.on('connect', function (data)
-	{
-		console.log('connection');
-	});
-*/
 	$scope.card 			= Card;
 	$scope.cardOptions  	= Card.getOptions();
 	$scope.cardValue 		= Card.getValue();
@@ -21,6 +15,12 @@ angular
 		}
 	});
 
+	Socket.on('results', function (data)
+	{
+		//jammer dat web niet doorwerkte afgelpen weken...
+		//anders was hier een geweldige websocket...
+	});
+
 	$scope.saveCard = function (newValue)
 	{
 		$scope.card.setValue(newValue);
@@ -28,7 +28,12 @@ angular
 
 	$scope.pickCard = function ()
 	{
-		$state.go('app.yourcard');
+		var rating = Rating.create({ rating:$scope.card.getValue(), participantId: User.getUserId(), issueId: $scope.card.getCurrentIssue().id });
+
+		rating.$promise.then(function (data)
+		{
+			$state.go('app.yourcard');
+		});
 	}
 
 	var imageIsFullscreen = false;
