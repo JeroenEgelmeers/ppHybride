@@ -15,7 +15,7 @@ angular
 		}
 	});
 
-	Socket.on('results', function (data)
+	Socket.on('issue result', function (data)
 	{
 		//jammer dat web niet doorwerkte afgelpen weken...
 		//anders was hier een geweldige websocket...
@@ -33,6 +33,8 @@ angular
 		rating.$promise.then(function (data)
 		{
 			$state.go('app.yourcard');
+
+			setTimeout(function(){ $state.go('app.results'); }, 4000);
 		});
 	}
 
