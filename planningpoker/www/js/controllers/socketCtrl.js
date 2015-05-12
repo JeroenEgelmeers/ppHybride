@@ -6,19 +6,26 @@ angular
 	$scope.cardOptions  	= Card.getOptions();
 	$scope.cardValue 		= Card.getValue();
 	
-	Socket.on('new issue', function (data)
+	Socket.on('connect', function (client)
 	{
-		if ($scope.card.getCurrentIssue() == null)
+		Socket.on('new issue', function (data)
 		{
-			$scope.card.setCurrentIssue(data);
-			$state.go('app.card');
-		}
-	});
+			//if ($scope.card.getCurrentIssue() == null)
+			//{
+				$scope.card.setCurrentIssue(data);
+				$state.go('app.card');
+			//}
+		});
 
-	Socket.on('results', function (data)
-	{
-		//jammer dat web niet doorwerkte afgelpen weken...
-		//anders was hier een geweldige websocket...
+		Socket.on('issue result', function (data)
+		{
+			//console.log(data);
+
+			$state.go('app.results');
+			
+			//jammer dat web niet doorwerkte afgelpen weken...
+			//anders was hier een geweldige websocket...
+		});
 	});
 
 	$scope.saveCard = function (newValue)
@@ -33,9 +40,6 @@ angular
 		rating.$promise.then(function (data)
 		{
 			$state.go('app.yourcard');
-
-			setTimeout(function(){ $state.go('app.results'); }, 4000);
-
 		});
 	}
 
