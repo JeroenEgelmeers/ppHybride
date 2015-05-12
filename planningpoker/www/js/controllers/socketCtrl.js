@@ -33,6 +33,9 @@ angular
 		rating.$promise.then(function (data)
 		{
 			$state.go('app.yourcard');
+
+			setTimeout(function(){ $state.go('app.results'); }, 4000);
+
 		});
 	}
 
