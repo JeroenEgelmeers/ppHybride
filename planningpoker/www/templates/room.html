@@ -1,15 +1,20 @@
-<ion-view view-title="Kamernummer invoeren">
+<ion-view view-title="Join a room">
 	<ion-content>
 		<form ng-submit="enterRoom(roomID)">
-			<div class="list">
-				<label class="item item-input">
-					<span class="input-label">Kamernummer</span>
-					<input type="text" ng-model="roomID">
-				</label>
-				<label class="item">
-					<button class="button button-block button-positive" id="button" name="loginToRoom" type="submit">Toetreden</button>
-				</label>
-			</div>
+		<div class="container">
+			<p>Welcome to Planning poker. Please enter the room ID given by you scrum master to join a planning poker session.</p>
+		</div>
+
+		<div class="list list-inset">
+		  <label class="item item-input">
+		    <input type="text" placeholder="Room ID" ng-model="roomID">
+		  </label>
+		</div>
+
+		<label class="item no-border">
+			<button class="button button-block button-positive green" name="loginToRoom" type="submit">Enter room</button>
+		</label>
+
 		</form>
 	</ion-content>
 </ion-view>

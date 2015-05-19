@@ -1,6 +1,8 @@
-h1 { font-size:18px; }
+h1
+{
+	font-size:18px;
+}
 
-#button { background-color: #78be2d; border-color: #6ba928}
 #your-card-image { height: 748px; width:561px; margin:auto; display:block; }
 .wrap { max-width:960px; min-width:280px; margin:auto; position:relative; }
 	.wrap img { max-width:100%; height:auto; }
@@ -15,7 +17,6 @@ h1 { font-size:18px; }
 
 .clearFix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
 
-
 .selectpicker { width:150px; height:40px; margin-bottom:20px; }
 .contentBlock { padding:20px; }
 
@@ -29,3 +30,46 @@ h1 { font-size:18px; }
 		.resultsTable .color { height:40px; width:40px; display:block; }
 			.resultsTable .modusNumber { padding-top:2px; margin-left:20px; text-align:center; color:#FFF; background:#387ef5; }
 				.resultsTable .modusNumber td { padding:5px; }
+
+.button.button-block.button-positive.green
+{
+	background-color: #78be2d !important;
+	border-color: #6ba928 !important;
+}
+
+/*overriding ionic classes to fit our own design*/
+.item
+{
+	padding: 6px;
+}
+
+.list-inset
+{
+	margin: 6px;
+}
+
+.container
+{
+	padding: 6px;
+}
+
+.container > p
+{
+	margin: 0px;
+}
+
+.item.no-border
+{
+	border: none;
+}
+
+.item-input
+{
+	background-color: #f4f3f3;
+	border-color: #dfdcdc;
+}
+
+.button.button-block
+{
+	margin: 0px;
+}

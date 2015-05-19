@@ -20,7 +20,7 @@ angular.module('planningpoker', ['ionic', 'planningpoker.controllers', 'lbServic
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
   $stateProvider
 
   .state('app', {
@@ -102,6 +102,8 @@ angular.module('planningpoker', ['ionic', 'planningpoker.controllers', 'lbServic
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/room');
+
+  $ionicConfigProvider.navBar.alignTitle('left');
   
 }).config(function (LoopBackResourceProvider)
 {
