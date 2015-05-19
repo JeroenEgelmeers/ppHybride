@@ -9,7 +9,7 @@
 			<form ng-submit="pickCard()">
 				<select ng-model="cardValue" ng-options="value for value in cardOptions" ng-change="saveCard(cardValue)" class="selectpicker"></select>
 				<div clas="clear"></div>
-				<button class="button button-block button-positive" type="submit" name="pickCardSubmit">Selecteer kaart</button>
+				<button class="button button-block button-positive" id="button" type="submit" name="pickCardSubmit">Selecteer kaart</button>
 			</form>
 		</div>
 	</ion-content>
