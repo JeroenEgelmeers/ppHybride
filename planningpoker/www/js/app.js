@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('planningpoker', ['ionic', 'planningpoker.controllers', 'lbServices'])
+angular.module('planningpoker', ['ionic', 'lbServices'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -26,8 +26,7 @@ angular.module('planningpoker', ['ionic', 'planningpoker.controllers', 'lbServic
   .state('app', {
 	url: "/app",
 	abstract: true,
-	templateUrl: "templates/menu.html",
-	controller: 'AppCtrl'
+	templateUrl: "templates/menu.html"
   })
 
   .state('app.room', {

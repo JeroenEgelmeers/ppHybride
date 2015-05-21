@@ -1,11 +1,15 @@
 <ion-modal-view>
 	<ion-header-bar class="bar-positive">
 		<h1 class="title">{{ modalTitle }}</h1>
-		<div class="buttons">
-			<button class="button button-clear" ng-click="modalClose()">Sluiten</button>
-		</div>
+		
 	</ion-header-bar>
 	<ion-content class="contentBlock">
 		<p>{{ modalContent }}</p>
 	</ion-content>
+	<ion-footer-bar align-title="right" class="bar-light">
+		<h1 class="title"></h1>
+		<div class="buttons">
+			<button class="button button-clear" ng-click="modalClose()">Sluiten</button>
+		</div>
+	</ion-footer-bar>
 </ion-modal-view>
