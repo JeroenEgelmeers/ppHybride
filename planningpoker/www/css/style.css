@@ -37,6 +37,15 @@ h1
 	border-color: #6ba928 !important;
 }
 
+#username-color
+{
+	float: left;
+	height: 46px;
+	width: 80px;
+	margin-right: 10px;
+	border: 1px solid #dfdcdc;
+}
+
 /*overriding ionic classes to fit our own design*/
 .item
 {
