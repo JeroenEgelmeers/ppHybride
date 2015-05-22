@@ -1,15 +1,39 @@
-<ion-view view-title="Kies een gebruikersnaam">
+<ion-view view-title="User settings">
 	<ion-content>
-		<form ng-submit="submitUsername(username)">
-			<div class="list">
-				<label class="item item-input">
-					<span class="input-label">Gebruikersnaam</span>
-					<input type="text" ng-model="username">
-				</label>
-				<label class="item">
-					<button class="button button-block button-positive" id="button" name="submitUsername" type="submit">Toetreden</button>
-				</label>
-			</div>
-		</form>
+		<div class="container">
+			<p>Please choose a name and color to identify yourself in this planning poker session.</p>
+
+		<p>
+			<label>
+				<input type="radio" value="existing" ng-model="usernameRadio">
+				<i>Choose an existing user:</i>
+			</label>
+		</p>
+
+		<label style="margin-bottom:10px" class="item item-input item-select">
+			<div style="width: 60px; height: 39px; background-color:{{ existingUserColor }}"></div>
+			<select ng-disabled="usernameRadio == 'new'" style="width: 100%; max-width: calc(100% - 70px);" class="item-input" ng-model="existingUserSelected" ng-change="selectExistingUser(existingUserSelected);" ng-options="existingUser as existingUser.name for existingUser in existingUsers track by existingUser.id">
+				<option ng-repeat="existingUser in existingUsers" value="{{ existingUser.id }}">{{ existingUser.name }}</option>
+			</select>
+		</label>
+
+		<p>
+			<label>
+				<input type="radio" value="new" ng-model="usernameRadio">
+				<i>Or create a new user:</i>
+			</label>
+		</p>
+
+		<div ng-disabled="usernameRadio == 'existing'" ng-click="showSelectColorModal()" style="float: left;height: 46px; width: 80px; margin-right: 10px; background-color: {{ newUserColor }}"></div>
+
+		<div style="float: left; width: calc(100% - 90px);">
+			<label style="margin-bottom:10px" class="item item-input">
+				<input ng-disabled="usernameRadio == 'existing'" type="text" placeholder="Username" ng-model="newUserName">
+			</label>
+		</div>
+
+			<button class="button button-block button-positive green" name="submitUsername" ng-click="submitUser(usernameRadio, newUserName);">Join session</button>
+
+		</div>
 	</ion-content>
 </ion-view>

@@ -43,6 +43,12 @@ h1
 	padding: 6px;
 }
 
+label.item.no-border
+{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
 .list-inset
 {
 	margin: 6px;
@@ -50,12 +56,12 @@ h1
 
 .container
 {
-	padding: 6px;
+	padding: 10px;
 }
 
 .container > p
 {
-	margin: 0px;
+	mmargin: 0px;
 }
 
 .item.no-border
@@ -65,8 +71,8 @@ h1
 
 .item-input
 {
-	background-color: #f4f3f3;
-	border-color: #dfdcdc;
+	background-color: #f4f3f3 !important;
+	border-color: #dfdcdc !important;
 }
 
 .button.button-block
