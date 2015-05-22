@@ -31,8 +31,8 @@ angular
 
 		if (!roomID)
 		{
-			$scope.modalTitle 	= 'Onbrekend kamernummer';
-			$scope.modalContent = 'Er is geen kamernummer ingevuld.';
+			$scope.modalTitle 	= 'Empty room ID';
+			$scope.modalContent = 'You need to enter a room ID.';
 			$ionicLoading.hide();
 			$scope.showWrongRoomIDModal();
 		}
@@ -67,8 +67,8 @@ angular
 
 				if (!found)
 				{
-					$scope.modalTitle 	= 'Ongeldig kamernummer';
-					$scope.modalContent = 'Het ingevulde kamernummer, bestaat niet.';
+					$scope.modalTitle 	= 'Invalid room ID';
+					$scope.modalContent = 'The room ID you entered, was not found.';
 					$ionicLoading.hide();
 					$scope.showWrongRoomIDModal();
 				}
