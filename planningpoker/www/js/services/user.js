@@ -1,33 +1,9 @@
 angular
 .module('planningpoker')
-/*
-.factory('User', function ()
-{
-	var username 	= "";
-	var hexColor 	= 000000;
 
-	return {
-		getUsername: function ()
-		{
-			return username;
-		},
-		setUsername: function (newUsername)
-		{
-			username = newUsername;
-		},
-		getHexColor: function ()
-		{
-			return hexColor;
-		},
-		setHexColor: function (newHexColor)
-		{
-			hexColor = newHexColor;
-		}
-	};
-});
-*/
 .factory('User', function ($q, $http)
 {
+	
 	var user 			= null;
 	var baseUrl			= '';
 
@@ -70,6 +46,7 @@ angular
 	}
 
 	var userId 		= null;
+	var roomId 		= null;
 	var username 	= "";
 	var hexColor 	= 000000;
 
@@ -81,6 +58,14 @@ angular
 		setUserId: function (newUserId)
 		{
 			userId = newUserId;
+		},
+		getRoomId: function ()
+		{
+			return roomId;
+		},
+		setRoomId: function (newRoomId)
+		{
+			roomId = newRoomId;
 		},
 		getUsername: function ()
 		{
@@ -97,10 +82,13 @@ angular
 		setHexColor: function (newHexColor)
 		{
 			hexColor = newHexColor;
-		},
+		}
+
+		,
 
 		login 			: login,
 		logount 		: logout,
 		currentUser 	: currentUser 
+
 	};
 });

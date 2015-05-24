@@ -1,6 +1,6 @@
 angular
 .module('planningpoker')
-.controller('EnterRoomCtrl', ['$scope', '$state', '$ionicLoading', '$ionicModal', 'SessionModel', 'Session', 'ParticipantsModel', function ($scope, $state, $ionicLoading, $ionicModal, SessionModel, Session, ParticipantsModel)
+.controller('EnterRoomCtrl', ['$scope', '$state', '$ionicLoading', '$ionicModal', 'SessionModel', 'Session', 'ParticipantsModel', 'User', function ($scope, $state, $ionicLoading, $ionicModal, SessionModel, Session, ParticipantsModel, User)
 {
 	$scope.roomID 					= 123456;
 
@@ -52,6 +52,7 @@ angular
 						found 					= true;
 						var sessionId 			= sessions[index].id;
 
+						User.setRoomId(sessionId);
 						SessionModel.setModel(sessions[index]);
 
 						var participantsData 	= Session.participants( { id : sessionId } );

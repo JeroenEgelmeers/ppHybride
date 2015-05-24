@@ -111,7 +111,7 @@ angular
 			if (!$scope.newUserName)
 			{
 				$scope.modalTitle 		= 'Empty username';
-				$scope.modalContent	 	= 'YOu need to enter a username.';
+				$scope.modalContent	 	= 'You need to enter a username.';
 				$ionicLoading.hide();
 				$scope.showModal();
 			}

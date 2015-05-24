@@ -36,16 +36,6 @@ angular.module('planningpoker', ['ionic', 'lbServices'])
 	}
   })
 
-  .state('app.color', {
-	url: "/color",
-	views: {
-	  'menuContent': {
-		templateUrl: "templates/color.html",
-		  controller: 'UserCtrl'
-	  }
-	}
-  })
-
   .state('app.username', {
 	url: "/username",
 	views: {
