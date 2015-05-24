@@ -21,15 +21,29 @@ h1
 .contentBlock { padding:20px; }
 
 /* modules */
-.resultsTable { }
-	.resultsTable tr { border-bottom:1px solid #000; }
-	.resultsTable tr.tr_header { background:#387ef5; color:#FFF; text-align:center; }
-		.resultsTable tr.tr_header td { padding:8px; }
-		.resultsTable tr td { padding-top:18px; padding:20px 5px; vertical-align: top; }
+/*.resultsTable { border-collapse:separate; border-spacing:0 5px; }
+	.resultsTable tr { margin-bottom:3px; border:1px solid #dfdcdc; background:#f4f3f3; }
+	.resultsTable tr.tr_header { background:#387ef5; color:#FFF; text-align:left; }
+		.resultsTable tr.tr_header td { padding-left:10px; }
+		.resultsTable tr td { font-size:16px; padding:12px 5px; vertical-align: top; }
 		.resultsTable tr td.colorContainer { padding:10px 5px; }
+		.resultsTable tr td.textContainer { padding-top:20px; }
 		.resultsTable .color { height:40px; width:40px; display:block; }
-			.resultsTable .modusNumber { padding-top:2px; margin-left:20px; text-align:center; color:#FFF; background:#387ef5; }
-				.resultsTable .modusNumber td { padding:5px; }
+			.resultsTable .modusNumber { margin-left:20px; text-align:center; color:#414040; border:1px solid #bbbaba; background:#cfcfcf; }
+				.resultsTable .modusNumber td { } */
+
+#resultContainer { color:#414040; }
+	#resultContainer div, a {  margin-bottom:5px; padding:12px; }
+	#resultContainer .header { font-size:14px; color:#FFF; border:1px solid #dfdcdc; background:#387ef5; }
+	#resultContainer .usersResult { padding:9px; border:1px solid #dfdcdc; background:#f4f3f3; }
+		#resultContainer .usersResult .userColor { padding:0px; margin:0; margin-right:20px; float:left; }
+		#resultContainer .usersResult .userColor .color { height:26px; width:31px; display:block; }
+		#resultContainer .usersResult .infoContainer { padding:2px 0 0 0; margin:0; float:left; width:80%;}
+			#resultContainer .usersResult .infoContainer .userName { font-size:14px; padding:0; margin:0; width:90%; float:left; }
+			#resultContainer .usersResult .infoContainer .userValue { font-size:18px; padding:2px 0 0; margin:0; width:5%; float:left; }
+	#resultContainer .mode { font-size:16px;  text-align:center; border:1px solid #bbbaba; background:#cfcfcf; }
+	#resultContainer .showMyCard { display:block; text-align:center; text-decoration:none; color:#FFF; border:1px solid #6ba928; background:#78be2d; }
+
 
 .button.button-block.button-positive.green
 {
