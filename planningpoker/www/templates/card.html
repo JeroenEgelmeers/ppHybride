@@ -1,16 +1,43 @@
 <ion-view view-title="Pick a card" hide-back-button="true">
 	<ion-content>
 		<div class="container">
-			<h2>{{ card.getCurrentIssue().description }}</h2>
-			<h4>Kaart kiezen</h4>
+			<div class="row">
+				<div class="col">	
+					<div class="session-info" ng-click="showSessioninfo()" style="background-color:#000000">
+					</div>
 
-			<p>Kies een kaart uit onderstaande lijst.</p>
+					<div style="float: left; width: calc(100% - 90px);">
+						<label style="margin-bottom:10px">
+							<i>
+								<b>Issue: </b>
+								{{card.getCurrentIssue().description }}
+							</i>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">	
+					<form ng-submit="pickCard()">
 
-			<form ng-submit="pickCard()">
-				<select ng-model="cardValue" ng-options="value for value in cardOptions" ng-change="saveCard(cardValue)" class="selectpicker"></select>
-				<div clas="clear"></div>
-				<button class="button button-block button-positive" id="button" type="submit" name="pickCardSubmit">Selecteer kaart</button>
-			</form>
+						<table width="100%" class="resultsTable">
+							<tr class="tr_header">
+								<td>How long would it take?
+								</td>
+							</tr>
+							<tr ng-repeat="value in cardOptions" ng-class="{'selected-table-row':value == card.getValue()}">
+								<td align="center" ng-click="saveCard(value)">
+									{{value}}
+								</td>
+							</tr>
+						</table>
+						<div class="clear"></div>
+						<button class="button button-block button-positive green" type="submit" id="button" name="pickCardSubmit">
+							Pick a card
+						</button>
+					</form>
+				</div>
+			</div>
 		</div>
 	</ion-content>
 </ion-view>
