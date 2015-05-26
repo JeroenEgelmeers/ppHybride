@@ -1,6 +1,6 @@
 angular
 .module('planningpoker')
-.controller('SocketCtrl', ['$scope', '$state', '$ionicScrollDelegate', 'Card', 'User', 'Rating', 'Socket', function ($scope, $state, $ionicScrollDelegate, Card, User, Rating, Socket)
+.controller('SocketCtrl', ['$scope', '$state', '$ionicScrollDelegate', '$ionicModal', 'Card', 'User', 'Rating', 'Socket', function ($scope, $state, $ionicScrollDelegate, $ionicModal, Card, User, Rating, Socket)
 {
 	$scope.card 			= Card;
 	$scope.cardOptions  	= Card.getOptions();
@@ -33,6 +33,30 @@ angular
 		});
 	});
 
+	$scope.showIssueModal = function ()
+	{
+		$scope.modalTitle 	= 'Issue info';
+		$scope.modalContent = $scope.card.getCurrentIssue().description;
+		$scope.issueModal.show();
+
+	};
+
+	$scope.closeIssueModal = function ()
+	{
+		$scope.issueModal.hide();
+	};
+
+	$scope.modalClose 			= $scope.closeIssueModal;
+
+	$ionicModal.fromTemplateUrl('templates/modal.html',
+	{
+		scope 		: $scope,
+		animation 	: 'slide-in-up'
+	}).then(function (modal)
+	{
+		$scope.issueModal 			= modal;
+	});
+
 	$scope.saveCard = function (newValue)
 	{
 		$scope.card.setValue(newValue);
@@ -46,7 +70,7 @@ angular
 
 		rating.$promise.then(function (data)
 		{
-			Socket.emit('vote', { 'vote' : vote });
+			//Socket.emit('vote', { 'vote' : vote });
 			$state.go('app.yourcard');
 		});
 	}

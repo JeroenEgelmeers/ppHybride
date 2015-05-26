@@ -94,7 +94,6 @@ angular
 
 	$scope.submitColor 				= function (hexColor)
 	{
-		//User.setHexColor(hexColor);
 		$scope.newUserColor 		= hexColor;
 		$scope.closeColorModal();
 	};

@@ -3,15 +3,21 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">	
-					<div class="session-info" ng-click="showSessioninfo()" >
+					<div class="session-info" ng-click="showIssueModal()">
 						<img src="img/info.png">
 					</div>
 
 					<div style="float: left; width: calc(100% - 90px);">
 						<label style="margin-bottom:10px">
 							<i>
-								<b>Issue: </b>
-								{{card.getCurrentIssue().description }}
+								<div class="ellipsis">
+									<div>
+									<p>
+									<b>Issue: </b>
+									{{ card.getCurrentIssue().description }}
+									</p>
+									</div>
+								</div>
 							</i>
 						</label>
 					</div>

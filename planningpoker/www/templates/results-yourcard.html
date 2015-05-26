@@ -1,0 +1,26 @@
+<ion-view view-title="Your card" hide-back-button="true">
+	<ion-content>
+		<div id="imageWrapper" class="wrap" on-tap="onImageTap()">
+			<img id="your-card-image" src="img/card_front.jpg">
+			<div class="caption">
+				<div class="caption-inner">
+					<div class="caption-content">
+						<p class="card-content">{{cardValue}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<table width="100%" class="resultsTable">
+					<tr class="tr_header">
+						<td>
+							<img id="loading-image" src="img/loading.gif" height="15" width="15" >
+							Waiting for your colleagues to vote.
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
