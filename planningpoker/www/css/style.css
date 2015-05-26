@@ -21,7 +21,7 @@ h1
 .contentBlock { padding:20px; }
 
 /* modules */
-/*.resultsTable { border-collapse:separate; border-spacing:0 5px; }
+.resultsTable { border-collapse:separate; border-spacing:0 5px; }
 	.resultsTable tr { margin-bottom:3px; border:1px solid #dfdcdc; background:#f4f3f3; }
 	.resultsTable tr.tr_header { background:#387ef5; color:#FFF; text-align:left; }
 		.resultsTable tr.tr_header td { padding-left:10px; }
@@ -30,7 +30,7 @@ h1
 		.resultsTable tr td.textContainer { padding-top:20px; }
 		.resultsTable .color { height:40px; width:40px; display:block; }
 			.resultsTable .modusNumber { margin-left:20px; text-align:center; color:#414040; border:1px solid #bbbaba; background:#cfcfcf; }
-				.resultsTable .modusNumber td { } */
+				.resultsTable .modusNumber td { } 
 
 #resultContainer { color:#414040; }
 	#resultContainer div, a {  margin-bottom:5px; padding:12px; }
@@ -69,10 +69,8 @@ h1
 .session-info
 {
 	float: left;
-	height: 65px;
-	width: 80px;
+
 	margin-right: 10px;
-	border: 1px solid #dfdcdc;
 }
 
 /*overriding ionic classes to fit our own design*/
@@ -119,5 +117,5 @@ label.item.no-border
 }
 
 .selected-table-row {
-    background-color:#808080 !important;
+    background-color:#DFDCDC !important;
 }
