@@ -94,4 +94,36 @@ angular
 
 		imageIsFullscreen = !imageIsFullscreen;
 	}
+
+	/* this 2nd function, is for the 2nd card screen */
+	var imageIsFullscreen2 = false;
+
+	$scope.onImageTap2 = function ()
+	{
+		if (imageIsFullscreen2)
+		{
+			$("#imageWrapper2").removeAttr("style");
+			$("#your-card-image2").removeAttr("style")
+		}
+		else
+		{
+			$ionicScrollDelegate.scrollTop()
+			$("#imageWrapper2").parent().css({ "height":"calc(100% - 1px)" });
+			$("#imageWrapper2").css({ "position":"absolute","left":"0","top":"0","max-width":"100%", "width":"100%", "height":"100%" });
+			$("#your-card-image2").css({ "width": "100%", "height" : "100%" });
+		}
+
+		imageIsFullscreen2 = !imageIsFullscreen2;
+	}
+
+	$scope.showMyCard = function ()
+	{
+		console.log('test');
+		$state.go('app.resultsyourcard');
+	};
+
+	$scope.showResults = function ()
+	{
+		$state.go('app.results');
+	};
 }]);

@@ -1,0 +1,19 @@
+<ion-view view-title="Your card" hide-back-button="false">
+	<ion-content>
+		<div id="imageWrapper2" class="wrap" on-tap="onImageTap2()">
+			<img id="your-card-image2" src="img/card_front.jpg">
+			<div class="caption">
+				<div class="caption-inner">
+					<div class="caption-content">
+						<p class="card-content">{{cardValue}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<button class="button button-block button-positive green" ng-click="showResults()">Show results</button>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

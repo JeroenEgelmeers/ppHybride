@@ -84,6 +84,16 @@ angular.module('planningpoker', ['ionic', 'lbServices'])
 		  controller: 'SocketCtrl'
 	  }
 	}
+  })
+
+  .state('app.resultsyourcard', {
+	url: "/resultsyourcard",
+	views: {
+	  'menuContent': {
+		templateUrl: "templates/resultsyourcard.html",
+		  controller: 'SocketCtrl'
+	  }
+	}
   });
 
   // if none of the above states are matched, use this as the fallback
