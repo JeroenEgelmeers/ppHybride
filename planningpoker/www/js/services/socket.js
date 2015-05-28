@@ -3,6 +3,7 @@ angular
 .factory('Socket', function ($rootScope)
 {
 	var baseUrl		= "http://p-poker.herokuapp.com:80";
+	//var baseUrl		= "http://localhost:3000";
 	var socket 		= io.connect(baseUrl);
 
 	return {

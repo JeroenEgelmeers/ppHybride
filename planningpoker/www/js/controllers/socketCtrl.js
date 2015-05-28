@@ -18,18 +18,19 @@ angular
 
 		Socket.on('voted', function (data)
 		{
-			//nog niet geimplementeerd door de server
+			//implmententeren nadat update is geweest naar heroku
 			console.log('voted', data);
 		});
 
 		Socket.on('issue result', function (data)
 		{
+			//implmententeren nadat update is geweest naar heroku
 			$state.go('app.results');
 		});
 
 		Socket.on('whois', function (data)
 		{
-			Socket.emit('iam', { 'participant_id' : User.getUserId(), 'room_id' : User.getRoomId() });
+			Socket.emit('iam', { 'participant_id' : User.getUserId(), 'room_id' : User.getRoomId(), 'participant_name': User.getUsername(), 'participant_color': User.getHexColor() });
 		});
 	});
 
@@ -70,7 +71,7 @@ angular
 
 		rating.$promise.then(function (data)
 		{
-			//Socket.emit('vote', { 'vote' : vote });
+			Socket.emit('vote', vote.toString());
 			$state.go('app.yourcard');
 		});
 	}
