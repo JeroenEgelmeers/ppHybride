@@ -5,6 +5,8 @@ angular
 	$scope.card 			= Card;
 	$scope.cardOptions  	= Card.getOptions();
 	$scope.cardValue 		= Card.getValue();
+	$scope.modus 			= Card.getModus();
+	$scope.results 			= Card.getResults();
 
 	Socket.on('connect', function ()
 	{
@@ -20,13 +22,19 @@ angular
 		{
 			$("#participants_voted").html(data.voted);
 			$("#participants_total").html(data.total);
-			console.log('voted', data);
 		});
 
 		Socket.on('issue result', function (data)
 		{
-			//implmententeren nadat update is geweest naar heroku
-			console.log('issue result', data);
+			var results = [];
+
+			for (var i = 0; i < data.votes.length; i++)
+			{
+				results.push({'color': data.votes[i].participant_color, 'name': data.votes[i].participant_name, 'value': data.votes[i].vote});
+			}
+
+			Card.setModus(data.modus);
+			Card.setResults(results);
 			$state.go('app.results');
 		});
 
@@ -73,9 +81,7 @@ angular
 
 		rating.$promise.then(function (data)
 		{
-			Socket.emit('vote', vote.toString());
-			$("#participants_voted").html("0");
-			$("#participants_total").html("0");
+			Socket.emit('vote', {'vote': vote.toString(), 'participant_name': User.getUsername(), 'participant_color': User.getHexColor() });
 			$state.go('app.yourcard');
 		});
 	}
@@ -100,7 +106,6 @@ angular
 		imageIsFullscreen = !imageIsFullscreen;
 	}
 
-	/* this 2nd function, is for the 2nd card screen */
 	var imageIsFullscreen2 = false;
 
 	$scope.onImageTap2 = function ()
@@ -123,7 +128,6 @@ angular
 
 	$scope.showMyCard = function ()
 	{
-		console.log('test');
 		$state.go('app.resultsyourcard');
 	};
 

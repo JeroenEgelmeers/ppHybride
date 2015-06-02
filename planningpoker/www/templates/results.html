@@ -5,28 +5,17 @@
 
 			<div id="resultContainer">
 				<div class="header">Results</div>
-				<div class="usersResult clearFix">
-					<div class="userColor"><span class="color" style="background:#444EEE;"></span></div>
+
+				<div class="usersResult clearFix" ng-repeat="result in results">
+					<div class="userColor"><span class="color" style="background:{{ result.color }};"></span></div>
 					<div class="infoContainer">
-						<div class="userName">Louis Hol</div>
-						<div class="userValue">1</div>
+						<div class="userName">{{ result.name }}</div>
+						<div class="userValue">{{ result.value }}</div>
 					</div>
 				</div>
-				<div class="usersResult clearFix">
-					<div class="userColor"><span class="color" style="background:#000000;"></span></div>
-					<div class="infoContainer">
-						<div class="userName">Jarno van Wijgeren</div>
-						<div class="userValue">3</div>
-					</div>
-				</div>
-				<div class="usersResult clearFix">
-					<div class="userColor"><span class="color" style="background:#AAA222;"></span></div>
-					<div class="infoContainer">
-						<div class="userName">Miquell Sprenkeler</div>
-						<div class="userValue">3</div>
-					</div>
-				</div>
-				<div class="mode">Modus: 3</div>
+
+				<div class="mode">Modus: {{ modus }}</div>
+
 				<button class="button button-block button-positive green" ng-click="showMyCard()">Show my card!</button>
 			</div>
 		</div>
