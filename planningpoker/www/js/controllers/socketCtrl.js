@@ -5,7 +5,7 @@ angular
 	$scope.card 			= Card;
 	$scope.cardOptions  	= Card.getOptions();
 	$scope.cardValue 		= Card.getValue();
-	
+
 	Socket.on('connect', function ()
 	{
 		var args 	= arguments;
@@ -18,13 +18,15 @@ angular
 
 		Socket.on('voted', function (data)
 		{
-			//implmententeren nadat update is geweest naar heroku
+			$("#participants_voted").html(data.voted);
+			$("#participants_total").html(data.total);
 			console.log('voted', data);
 		});
 
 		Socket.on('issue result', function (data)
 		{
 			//implmententeren nadat update is geweest naar heroku
+			console.log('issue result', data);
 			$state.go('app.results');
 		});
 
@@ -72,6 +74,8 @@ angular
 		rating.$promise.then(function (data)
 		{
 			Socket.emit('vote', vote.toString());
+			$("#participants_voted").html("0");
+			$("#participants_total").html("0");
 			$state.go('app.yourcard');
 		});
 	}
