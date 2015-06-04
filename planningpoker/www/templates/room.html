@@ -1,17 +1,17 @@
-<ion-view view-title="Join a room">
+<ion-view view-title="Join a session">
 	<ion-content>
 		<div class="container">
 			<form ng-submit="enterRoom(roomID)">
-				<p>Welcome to Planning poker. Please enter the room ID given by you scrum master to join a planning poker session.</p>
+				<p>Welcome to Planning poker. Please enter the session ID given by you scrum master to join a planning poker session.</p>
 
 				<div>
 					<label style="margin-bottom:10px" class="item item-input">
-						<input type="text" placeholder="Room ID" ng-model="roomID">
+						<input type="text" placeholder="Session ID" ng-model="roomID">
 					</label>
 				</div>
 
 				<label class="item no-border">
-					<button class="button button-block button-positive green" name="loginToRoom" type="submit">Enter room</button>
+					<button class="button button-block button-positive green" name="loginToRoom" type="submit">Enter session</button>
 				</label>
 			</form>
 		</div>
