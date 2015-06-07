@@ -67,6 +67,7 @@ angular.module('planningpoker', ['ionic', 'lbServices'])
   })
 
   .state('app.yourcard', {
+  	cache: false,
 	url: "/yourcard",
 	views: {
 	  'menuContent': {
@@ -77,6 +78,7 @@ angular.module('planningpoker', ['ionic', 'lbServices'])
   })
 
   .state('app.results', {
+  	cache: false,
 	url: "/results",
 	views: {
 	  'menuContent': {
@@ -87,6 +89,7 @@ angular.module('planningpoker', ['ionic', 'lbServices'])
   })
 
   .state('app.resultsyourcard', {
+  	cache: false,
 	url: "/resultsyourcard",
 	views: {
 	  'menuContent': {
