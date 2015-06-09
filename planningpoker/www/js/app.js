@@ -13,6 +13,21 @@ angular.module('planningpoker', ['ionic', 'lbServices'])
 		{
 			StatusBar.styleDefault();
 		}
+/*
+		var backCount = 10;
+
+		$ionicPlatform.registerBackButtonAction(function ()
+		{
+			console.log('We sluiten hem af als je zo doorgaat...', --backCount);
+			
+			if (backCount < 0)
+			{
+				navigator.app.exitApp();
+			}
+
+			return;
+		}, 100);
+*/
 	});
 })
 

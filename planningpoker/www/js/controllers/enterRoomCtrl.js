@@ -2,7 +2,7 @@ angular
 .module('planningpoker')
 .controller('EnterRoomCtrl', ['$scope', '$state', '$ionicLoading', '$ionicModal', 'SessionModel', 'Session', 'ParticipantsModel', 'User', function ($scope, $state, $ionicLoading, $ionicModal, SessionModel, Session, ParticipantsModel, User)
 {
-	$scope.roomID 					= 123456;
+	$scope.roomID 					= null;
 
 	$scope.showWrongRoomIDModal 	= function ()
 	{
