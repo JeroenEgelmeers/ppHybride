@@ -1,12 +1,29 @@
 angular
 .module('planningpoker')
-.controller('SocketCtrl', ['$scope', '$state', '$ionicScrollDelegate', '$ionicModal', 'Card', 'User', 'Rating', 'Socket', function ($scope, $state, $ionicScrollDelegate, $ionicModal, Card, User, Rating, Socket)
+.controller('SocketCtrl', ['$scope', '$state', '$ionicScrollDelegate', '$ionicModal', 'Card', 'User', 'Rating', 'Fibinacci_Value', 'Socket', function ($scope, $state, $ionicScrollDelegate, $ionicModal, Card, User, Rating, Fibinacci_Value, Socket)
 {
 	$scope.card 			= Card;
 	$scope.cardOptions  	= Card.getOptions();
 	$scope.cardValue 		= Card.getValue();
 	$scope.modus 			= Card.getModus();
 	$scope.results 			= Card.getResults();
+
+	if (Card.getOptions()) 	{ $scope.cardOptions  	= Card.getOptions(); }
+	else
+	{
+		Fibinacci_Value.find().$promise.then(function (values)
+		{
+			var cardValues = [];
+
+			for (var i = 0; i < values.length; i++)
+			{
+				cardValues.push(values[i].value);
+			}
+
+			Card.setOptions(cardValues);
+			$scope.cardOptions = Card.getOptions();
+		});
+	}
 
 	Socket.on('connect', function ()
 	{
@@ -59,6 +76,21 @@ angular
 		{
 			Socket.emit('iam', { 'participant_id' : User.getUserId(), 'room_id' : User.getRoomId(), 'participant_name': User.getUsername(), 'participant_color': User.getHexColor() });
 		});
+
+		Socket.on('pauze', function ()
+		{
+			if (!Card.getVotedCoffee())
+			{
+				$scope.showCoffeeModal();
+			}
+		});
+
+		Socket.on('continue', function ()
+		{
+			Card.setVotedCoffee(false);
+
+			$scope.closeCoffeeModal();
+		});
 	});
 
 	$scope.showIssueModal = function ()
@@ -85,6 +117,33 @@ angular
 		$scope.issueModal 			= modal;
 	});
 
+	$scope.showCoffeeModal 	= function ()
+	{
+		$scope.coffeeModal.show();
+	};
+
+	$scope.closeCoffeeModal = function ()
+	{
+		$scope.coffeeModal.hide();
+	};
+
+	$scope.continue 			= function ()
+	{
+		Socket.emit('continue');
+		$scope.closeCoffeeModal();
+	};
+
+	$ionicModal.fromTemplateUrl('templates/coffeeModal.html',
+	{
+		scope 		: $scope,
+		animation 	: 'slide-in-up',
+		backdropClickToClose: false,
+		hardwareBackButtonClose: false
+	}).then(function (modal)
+	{
+		$scope.coffeeModal 			= modal;
+	});
+
 	$scope.saveCard = function (newValue)
 	{
 		$scope.card.setValue(newValue);
@@ -94,13 +153,23 @@ angular
 	{
 		var vote = $scope.card.getValue();
 
-		var rating = Rating.create({ rating: vote, participantId: User.getUserId(), issueId: $scope.card.getCurrentIssue().id });
-
-		rating.$promise.then(function (data)
+		if (vote == "Coffee")
 		{
 			Socket.emit('vote', {'vote': vote.toString(), 'participant_name': User.getUsername(), 'participant_color': User.getHexColor() });
-			$state.go('app.yourcard');
-		});
+			Card.setVotedCoffee(true);
+			$scope.showCoffeeModal();
+		}
+		else
+		{
+			var rating = Rating.create({ rating: vote, participantId: User.getUserId(), issueId: $scope.card.getCurrentIssue().id });
+
+			rating.$promise.then(function (data)
+			{
+				Socket.emit('vote', {'vote': vote.toString(), 'participant_name': User.getUsername(), 'participant_color': User.getHexColor() });
+
+				$state.go('app.yourcard');
+			});
+		}
 	}
 
 	var imageIsFullscreen = false;
