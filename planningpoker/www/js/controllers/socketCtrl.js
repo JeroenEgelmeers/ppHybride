@@ -77,7 +77,7 @@ angular
 			Socket.emit('iam', { 'participant_id' : User.getUserId(), 'room_id' : User.getRoomId(), 'participant_name': User.getUsername(), 'participant_color': User.getHexColor() });
 		});
 
-		Socket.on('pauze', function ()
+		Socket.on('break', function ()
 		{
 			if (!Card.getVotedCoffee())
 			{
@@ -183,7 +183,7 @@ angular
 		}
 		else
 		{
-			$ionicScrollDelegate.scrollTop()
+			$ionicScrollDelegate.scrollTop();
 			$("#imageWrapper").parent().css({ "height":"calc(100% - 1px)" });
 			$("#imageWrapper").css({ "position":"absolute","left":"0","top":"0","max-width":"100%", "width":"100%", "height":"100%" });
 			$("#your-card-image").css({ "width": "100%", "height" : "100%" });
@@ -203,7 +203,7 @@ angular
 		}
 		else
 		{
-			$ionicScrollDelegate.scrollTop()
+			$ionicScrollDelegate.scrollTop();
 			$("#imageWrapper2").parent().css({ "height":"calc(100% - 1px)" });
 			$("#imageWrapper2").css({ "position":"absolute","left":"0","top":"0","max-width":"100%", "width":"100%", "height":"100%" });
 			$("#your-card-image2").css({ "width": "100%", "height" : "100%" });
