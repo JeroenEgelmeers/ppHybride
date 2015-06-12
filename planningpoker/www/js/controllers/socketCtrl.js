@@ -50,24 +50,7 @@ angular
 				results.push({'color': data.votes[i].participant_color, 'name': data.votes[i].participant_name, 'value': data.votes[i].vote});
 			}
 
-			var modus = data.modus[0];
-
-            var modusValues = modus.values;
-            var valuesString = "";
-
-            for (var i = 0; i < modusValues.length; i++)
-            {
-                valuesString += modusValues[i].value;
-                
-                if (i < modusValues.length -1 )
-                {
-                    valuesString += ", ";
-                }
-            }
-
-            modus.mode = valuesString;
-
-			Card.setModus(modus);
+			Card.setModus(data.modus[0]);
 			Card.setResults(results);
 			$state.go('app.results');
 		});
@@ -151,7 +134,7 @@ angular
 
 	$scope.pickCard = function ()
 	{
-		var vote = $scope.card.getValue();
+		var vote = $scope.card.getValue().value;
 
 		if (vote == "Coffee")
 		{

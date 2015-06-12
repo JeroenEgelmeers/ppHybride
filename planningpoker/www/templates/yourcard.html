@@ -14,7 +14,7 @@
 			<div class="caption">
 				<div class="caption-inner">
 					<div class="caption-content">
-						<p class="card-content">{{cardValue}}</p>
+						<p class="card-content" ng-bind-html="cardValue.display"></p>
 					</div>
 				</div>
 			</div>
@@ -26,10 +26,6 @@
 						<td>
 							<img id="loading-image" src="img/waitBlue.gif" height="15" width="15" >
 							<span id="participants_voted"></span> participants have cast a vote.
-							
-							<!--[<span id="participants_total"></span>
-							<span>/</span>
-							<span id="participants_voted"></span>]-->
 						</td>
 					</tr>
 				</table>

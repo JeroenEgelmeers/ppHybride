@@ -32,10 +32,8 @@
 								<td>How long would it take?
 								</td>
 							</tr>
-							<tr ng-repeat="value in cardOptions" ng-class="{'selected-table-row':value == card.getValue()}">
-								<td align="center" ng-click="saveCard(value)">
-									{{value}}
-								</td>
+							<tr ng-repeat="option in cardOptions" ng-class="{'selected-table-row':option.value == card.getValue().value}">
+								<td align="center" ng-click="saveCard(option)" ng-bind-html="option.display"></td>
 							</tr>
 						</table>
 						<div class="clear"></div>

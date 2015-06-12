@@ -10,11 +10,11 @@
 					<div class="userColor"><span class="color" style="background:{{ result.color }};"></span></div>
 					<div class="infoContainer">
 						<div class="userName">{{ result.name }}</div>
-						<div class="userValue">{{ result.value }}</div>
+						<div class="userValue" ng-bind-html="result.display"></div>
 					</div>
 				</div>
 
-				<div class="mode">Mode: {{ modus.mode }} ({{ modus.count }})</div>
+				<div class="mode">Mode: <span ng-bind-html="modus.mode"></span> (<span ng-bind-html="modus.count"></span>)</div>
 
 				<button class="button button-block button-positive green" ng-click="showMyCard()">Show my card!</button>
 			</div>

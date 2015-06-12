@@ -9,6 +9,67 @@ angular
 	var results 			= "";
 	var votedCoffee 		= false;
 
+	function setOptions (newOptions)
+	{
+		var newCardOptions = [];
+
+		for (var i = 0; i < newOptions.length; i++)
+		{
+			newCardOptions.push({ value: newOptions[i], display: getDisplayValue(newOptions[i]) });	
+		}
+
+		cardOptions 	= newCardOptions;
+		cardValue 		= cardOptions[0];
+	}
+
+	function getDisplayValue (value)
+	{
+		switch (value)
+		{
+			case "Infinite":
+				return "&infin;";
+			case "Unsure":
+				return "<i class='fa fa-question'></i>";
+			case "Coffee":
+				return "<i class='fa fa-coffee'></i>";
+				break;
+			default:
+				return value;
+		}
+	}
+
+	function setResults (newResults)
+	{
+		results = [];
+
+		for (var i = 0; i < newResults.length; i++)
+		{
+			results.push({color: newResults[i].color, name: newResults[i].name, vaue: newResults[i].value, display: getDisplayValue(newResults[i].value)});
+		}
+	}
+
+	function setModus (newModus)
+	{
+		var tempModus 			= newModus;
+
+        var modusValues 		= tempModus.values;
+        var valuesString 		= "";
+
+        for (var i = 0; i < modusValues.length; i++)
+        {
+            valuesString += getDisplayValue(modusValues[i].value);
+            
+            if (i < modusValues.length -1 )
+            {
+                valuesString 	+= ", ";
+            }
+        }
+
+        tempModus.mode 			= valuesString;
+
+        modus = tempModus;
+	}
+
 	return {
 		getOptions: function ()
 		{
@@ -16,8 +77,7 @@ angular
 		},
 		setOptions: function (newCardOptions)
 		{
-			cardOptions 	= newCardOptions;
-			cardValue 		= cardOptions[0];
+			setOptions(newCardOptions);
 		},
 		getValue: function ()
 		{
@@ -41,7 +101,7 @@ angular
 		},
 		setModus: function (newModus)
 		{
-			modus 			= newModus;
+			setModus(newModus);
 		},
 		getResults: function ()
 		{
@@ -49,7 +109,7 @@ angular
 		},
 		setResults: function (newResults)
 		{
-			results 		= newResults;
+			setResults(newResults);
 		},
 		getVotedCoffee: function ()
 		{
@@ -58,6 +118,10 @@ angular
 		setVotedCoffee: function (newVotedCoffee)
 		{
 			votedCoffee 		= newVotedCoffee;
+		},
+		getDisplayValue: function (value)
+		{
+			return getDisplayValue(value);
 		}
 	};
 });
