@@ -1,9 +1,7 @@
 angular
 .module('planningpoker')
-.controller('UserCtrl', ['$scope', '$state', '$ionicLoading', '$ionicModal', 'Session', 'Participant', 'SessionModel', 'User','Color', 'ParticipantsModel', '$cordovaSplashscreen', function ($scope, $state, $ionicLoading, $ionicModal, Session, Participant, SessionModel, User, Color, ParticipantsModel, $cordovaSplashscreen)
+.controller('UserCtrl', ['$scope', '$state', '$ionicLoading', '$ionicModal', 'Session', 'Participant', 'SessionModel', 'User','Color', 'ParticipantsModel', function ($scope, $state, $ionicLoading, $ionicModal, Session, Participant, SessionModel, User, Color, ParticipantsModel)
 {
-	$cordovaSplashscreen.show();
-
 	$scope.usernameRadio    	= "new";
 	$scope.existingUsers 		= ParticipantsModel.getParticipants();
 	$scope.existingUserSelected	= null;
