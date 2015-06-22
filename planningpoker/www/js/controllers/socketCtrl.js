@@ -74,6 +74,29 @@ angular
 
 			$scope.closeCoffeeModal();
 		});
+
+		Socket.on('finished', function ()
+		{
+			$scope.showFinishedModal();
+		});
+	});
+
+	$scope.showFinishedModal = function ()
+	{
+		$scope.finishedModal.show();
+	};
+
+	$scope.modalFinishedClose 			= $scope.closeFinishedModal;
+
+	$ionicModal.fromTemplateUrl('templates/finished_modal.html',
+	{
+		scope 		: $scope,
+		animation 	: 'slide-in-up',
+		backdropClickToClose: false,
+		hardwareBackButtonClose: false
+	}).then(function (modal)
+	{
+		$scope.finishedModal 			= modal;
 	});
 
 	$scope.showIssueModal = function ()
@@ -81,7 +104,6 @@ angular
 		$scope.modalTitle 	= 'Issue info';
 		$scope.modalContent = $scope.card.getCurrentIssue().description;
 		$scope.issueModal.show();
-
 	};
 
 	$scope.closeIssueModal = function ()
